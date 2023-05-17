@@ -1,0 +1,19 @@
+import time
+
+def concentration_timer(minutes):
+    seconds = minutes * 60
+    end_time = time.time() + seconds
+
+    print(f"专注时钟开始，时长为 {minutes} 分钟。\n")
+
+    while time.time() < end_time:
+        remaining_time = int(end_time - time.time())
+        minutes_left = remaining_time // 60
+        seconds_left = remaining_time % 60
+        print(f"剩余时间：{minutes_left:02d}:{seconds_left:02d}", end="\r")
+        time.sleep(1)
+
+    print("\n专注时间结束！")
+
+# 设置专注时长为 25 分钟
+concentration_timer(25)
